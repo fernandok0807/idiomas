@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row">
+        <div class="col md-5">
+            <div class="card-content">
+                <br>
+                <form #colorForm="ngForm" >
+                    <div class="form-group">
+                        <div class="col-md-10">
+    
+    <input hidden class="form-control" name="_id" #_id="ngModel"[(ngModel)]="colorService.selectedColor._id" type="text" placeholder="El Codigo Es Asignado Automaticamente">
+                        </div>        
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input class="form-control" name="nombre" #txtnombre="ngModel"[(ngModel)]="colorService.selectedColor.nombre" type="text" placeholder="Nombre">
+                        </div>        
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input class="form-control" name="kaqchiquel" #txtkaq="ngModel"[(ngModel)]="colorService.selectedColor.kaqchiquel" type="text" placeholder="Kaqchiquel">
+                        </div>        
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input class="form-control" name="ingles" #txtin="ngModel"[(ngModel)]="colorService.selectedColor.ingles" type="text" placeholder="Ingles">
+                        </div>        
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input class="form-control" name="kaq1" #txtkaq1="ngModel"[(ngModel)]="colorService.selectedColor.kaq1" type="text" placeholder="Kaqchiquel Error 1">
+                        </div>        
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input class="form-control" name="kaq2" #txtkaq2="ngModel"[(ngModel)]="colorService.selectedColor.kaq2" type="text" placeholder="Kaqchiquel Error 2">
+                        </div>        
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input class="form-control" name="in1" #txtin1="ngModel"[(ngModel)]="colorService.selectedColor.in1" type="text" placeholder="Ingles Error 1">
+                        </div>        
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input class="form-control" name="in2" #txtin2="ngModel"[(ngModel)]="colorService.selectedColor.in2" type="text" placeholder="Ingles Error 2">
+                        </div>        
+                    </div>
+                    <div class="card-action">
+                        <div class="col md-12">
+                            <button class="btn btn-primary" (click)="addColor(colorForm)" style="margin-right: 5px;" >Guardar</button>
+                            <button class="btn btn-secondary" (click)="resetForm(colorForm)" >Limpiar</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            
+        </div>
+        <div class="col md-7">
+            <table class="table table-borderer">
+                <thead>
+                    <th>Nombre</th>
+                    <th>Kaqchiquel</th>
+                    <th>Ingles</th>
+                    <th>Acciones</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let color of colorService.colors">
+                        <td>{{color.nombre}}</td>
+                        <td>{{color.kaqchiquel}}</td>
+                        <td>{{color.ingles}}</td>
+                        <td>
+                            <a (click)="editColor(color)" class="btn btn-outline-success">Editar</a>
+                            <a (click)="deleteColor(color)" class="btn btn-outline-danger">Borrar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
